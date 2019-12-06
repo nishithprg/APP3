@@ -1,0 +1,3 @@
+Pour commencer, implémenter la recherche du nombre d'espèces et de caractéristiques d'un arbre, à modifier dans le fichier arbresphylo.{c,py}.
+
+Pour les actes suivants, vous aurez également à modifier le programme principal (main.{c,py}).

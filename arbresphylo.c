@@ -38,7 +38,7 @@ int appartient(noeud * racine, char *espece){
 	//char espece_arb[15];
 	//strcpy(espece_arb, racine->valeur);	
 	//printf("%s\n", racine->valeur);	
-	if(strcmp(racine->valeur, espece) == 0){
+	if(!strcmp(racine->valeur, espece)){
 		return 1;	
 	} 
 	return appartient(racine->gauche, espece) || appartient(racine->droit, espece);
@@ -48,17 +48,17 @@ void rechercher_espece (arbre racine, char *espece, liste_t *lst_head){
 	if(racine == NULL){
 		return;
 	}
-	char espece_arb[15];
+	//char espece_arb[15];
 	if(appartient(racine->gauche, espece) && racine->gauche != NULL){
-		strcpy(espece_arb, racine->valeur);
-		if(*espece_arb == *espece){
+		//strcpy(espece_arb, racine->valeur);
+		if(!strcmp(racine->valeur, espece)){
 			return;	
 		}
 		rechercher_espece(racine->gauche, espece, lst_head);
 	} else if(appartient(racine->droit, espece) && racine->droit != NULL){
-		strcpy(espece_arb, racine->valeur);
-		printf("%s, %s\n", espece_arb, espece);		
-		if(*espece_arb == *espece){
+		//strcpy(espece_arb, racine->valeur);
+		printf("%s, %s\n", racine->valeur, espece);		
+		if(!strcmp(racine->valeur, espece)){
 			return;	
 		}
 		ajout_en_queue(lst_head, racine->valeur);

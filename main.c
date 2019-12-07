@@ -80,11 +80,11 @@ int main(int argc, char* argv[])
 	lst_head.tete = NULL;	
 	if(appartient(mon_arbre, searching)){
 		rechercher_espece(mon_arbre, searching, &lst_head);
-		afficher_lst(lst_head);		
+		//afficher_lst(lst_head);	//Fonction d'affichage de la liste chainee	
 		conversion_carac(lst_head, carac_lst);
-		printf("\n\tCaracteristique de l'espece\n%s\n", carac_lst);
+		printf("\n\tCaracteristique de l'espece\n%s\n", carac_lst); //Affichage de l'ensemble des caractesitques
 	} else {
-		printf("%s n'appartient pas a l'arbre.\n", espece_recherche);
+		printf("%s n'appartient pas a l'arbre.\n", espece_recherche); //En cas le nom d'espece fournie n'est pas dans l'arbre
 	}
 	
 	return 0;

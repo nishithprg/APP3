@@ -18,9 +18,10 @@ void ajout_en_queue(liste_t *lst_head, char *elem){
 	while(cel->suivant != NULL){
 	   cel = cel-> suivant;
 	}
-	fin->valeur = elem;	
+	fin->valeur = elem;
 	fin ->suivant = NULL;
 	cel->suivant = fin;
+	//printf("Linked list elem : %s\n", fin->valeur);
    } else {
    	ajout_en_tete(lst_head, elem);
    }
@@ -37,10 +38,12 @@ void conversion_carac(liste_t lst_head, char *lst){
 		return;
 	}	
 	cellule_t *queue = lst_head.tete;
-	char comma = ',';
-	while(queue->suivant != NULL){
+	char comma[2] = ",";
+	while(queue != NULL){
 		strcat(lst, queue->valeur);
-		strcat(lst, &comma);
+		if(queue->suivant != NULL){
+			strcat(lst, comma);
+		}
 		queue = queue-> suivant;
 	}
 }
@@ -52,10 +55,10 @@ void afficher_lst(liste_t lst_head){
 		return;
 	}	
 	cellule_t *queue = lst_head.tete;
-	while(queue->suivant != NULL){
+	while(queue != NULL){
 		char lst_carac[15];
 		strcpy(lst_carac, queue->valeur);	
-		printf("%s\n", lst_carac);
+		//printf("%s\n", lst_carac);
 		queue = queue->suivant;
 	}
 }

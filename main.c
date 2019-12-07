@@ -75,6 +75,7 @@ int main(int argc, char* argv[])
 	}
 	*/
 	
+	//Acte II
 	//Initialisation de liste chainee et appel de la fonction de recherche d'espece
 	liste_t lst_head;
 	lst_head.tete = NULL;	
@@ -85,6 +86,23 @@ int main(int argc, char* argv[])
 		printf("\n\tCaracteristique de l'espece\n%s\n", carac_lst); //Affichage de l'ensemble des caractesitques
 	} else {
 		printf("%s n'appartient pas a l'arbre.\n", espece_recherche); //En cas le nom d'espece fournie n'est pas dans l'arbre
+	}
+	
+	//Acte III
+	//Ecriture des caractestique dans listes chaine
+	liste_t lst_head;
+	lst_head.tete = NULL;
+	char carac[15];
+	int nb_carac;
+	printf("Nombre de caracteristique de l'espece : ");
+	scanf("%d\n", nb_carac);
+	printf("Premiere caracteristique : ");
+	scanf("%s\n", carac);
+	ajout_en_tete(&lst_head, carac);
+	for(int i = 1; i < nb_carac - 1; i++){
+		printf("Caracteristique suivante: ");
+		scanf("%s\n", carac);
+		ajout_en_queue(&lst_head, carac);
 	}
 	
 	return 0;

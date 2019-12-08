@@ -32,9 +32,10 @@ cellule_t* nouvelleCellule (void){
     cellule_t *cel = malloc(sizeof(cellule_t));
     return cel;
 }
-
+ //fonction retourn le caracteristique selon l'index
+ //index est i-ieme caractestique de l'espece a inserer
 char *elem_idx(liste_t lst_head, int index, int nb_carac){
-	printf("test 4\n");
+	//printf("test 4\n");
 	if(lst_head.tete != NULL){
 		cellule_t *queue = lst_head.tete;
 		if(index > nb_carac - 1){
@@ -53,6 +54,7 @@ char *elem_idx(liste_t lst_head, int index, int nb_carac){
 	return NULL;
 }
 
+//parcours la liste chainee est concatene les caracteristique a un tableau de caractere lst qui sera afficher par le programme
 void conversion_carac(liste_t lst_head, char *lst){
 	if(lst_head.tete == NULL){
 		return;
@@ -67,7 +69,8 @@ void conversion_carac(liste_t lst_head, char *lst){
 		queue = queue-> suivant;
 	}
 }
-
+ 
+//Une fonction de d'affichage de liste chaine pour regarder sa foncionnement pour deduire les sources de probleme
 void afficher_lst(liste_t lst_head){
 	printf("\n\tThis is a test.\n");
 	if(lst_head.tete == NULL){

@@ -34,6 +34,7 @@ cellule_t* nouvelleCellule (void){
 }
 
 char *elem_idx(liste_t lst_head, int index, int nb_carac){
+	printf("test 4\n");
 	if(lst_head.tete != NULL){
 		cellule_t *queue = lst_head.tete;
 		if(index > nb_carac - 1){

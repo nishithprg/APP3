@@ -98,7 +98,6 @@ int main(int argc, char* argv[])
 	scanf("%d", &nb_carac);
 	printf("Nom de l'espece a inserer : ");
 	scanf("%s", espece);
-	
 	if(nb_carac != 0){
 		printf("Premiere caracteristique : ");
 		scanf("%s", carac);

@@ -58,24 +58,33 @@ void rechercher_espece (arbre racine, char *espece, liste_t *lst_head){
 }
 
 void insertion_espece (arbre racine, char *espece, liste_t lst_head, int nb_carac, int index){
+	printf("test 2\n");
 	if(racine == NULL){
 		racine = nouveau_noeud ();
-		strcpy(racine->valeur,espece);
-		if(nb_carac == 0){
-			return;
-		}
-	}
-	if(racine->droit == NULL && racine->gauche == NULL){
+		racine->valeur = espece;
+		printf("test 5\n");
+		return;
+		// //strcpy(racine->valeur,espece);
+		// if(nb_carac == 0){
+		// 	return;
+		// }
+	} else if(racine->droit == NULL && racine->gauche == NULL){
 		printf("%s a les memes caracteristique qur %s, insertion pas possible", racine->valeur, espece);
-	}
-	if(!strcmp(racine->valeur, elem_idx(lst_head, index, nb_carac))){
-		printf("%s \t droit\n", racine->valeur);
-		insertion_espece(racine->droit,espece,lst_head,nb_carac,index+1);
 	} else {
-		printf("%s \t gauche\n", racine->valeur);
-		insertion_espece(racine->gauche,espece,lst_head,nb_carac,index);
+		printf("test 3\n");
+		char *elem = elem_idx(lst_head, index, nb_carac);
+		if(elem == NULL){
+			printf("%s \t gauche 2\n", racine->valeur);
+			insertion_espece(racine->gauche,espece,lst_head,nb_carac,index);
+		}
+		if(!strcmp(racine->valeur, elem)){
+			printf("%s \t droit\n", racine->valeur);
+			insertion_espece(racine->droit,espece,lst_head,nb_carac,index+1);
+		} else {
+			printf("%s \t gauche\n", racine->valeur);
+			insertion_espece(racine->gauche,espece,lst_head,nb_carac,index);
+		}	
 	}
-
 }
 
 

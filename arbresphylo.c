@@ -69,8 +69,10 @@ void insertion_espece (arbre racine, char *espece, liste_t lst_head, int nb_cara
 		printf("%s a les memes caracteristique qur %s, insertion pas possible", racine->valeur, espece);
 	}
 	if(!strcmp(racine->valeur, elem_idx(lst_head, index, nb_carac))){
+		printf("%s \t droit\n", racine->valeur);
 		insertion_espece(racine->droit,espece,lst_head,nb_carac,index+1);
 	} else {
+		printf("%s \t gauche\n", racine->valeur);
 		insertion_espece(racine->gauche,espece,lst_head,nb_carac,index);
 	}
 

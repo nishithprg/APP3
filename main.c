@@ -92,10 +92,12 @@ int main(int argc, char* argv[])
 	//Ecriture des caractestique dans listes chaine
 	liste_t lst_head;
 	lst_head.tete = NULL;
-	char carac[15];
+	char carac[15], espece[15];
 	int nb_carac;
 	printf("Nombre de caracteristique de l'espece : ");
 	scanf("%d\n", nb_carac);
+	printf("Nom de l'espece a inserer : ");
+	scanf("%s\n", espece);
 	printf("Premiere caracteristique : ");
 	scanf("%s\n", carac);
 	ajout_en_tete(&lst_head, carac);
@@ -104,7 +106,7 @@ int main(int argc, char* argv[])
 		scanf("%s\n", carac);
 		ajout_en_queue(&lst_head, carac);
 	}
-	
+
 	return 0;
 }
 

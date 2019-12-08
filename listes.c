@@ -33,6 +33,22 @@ cellule_t* nouvelleCellule (void){
     return cel;
 }
 
+char *elem_idx(liste_t lst_head, int index){
+	if(lst_head.tete != NULL){
+		cellule_t *queue = lst_head.tete;
+		for(int i = 0; i <= index; i++){
+			if(i == index){
+				return queue->valeur;
+			}
+			// if(i < index && queue->suivant == NULL){
+			// 	return NULL;
+			// }
+			queue = queue-> suivant;
+		}
+	}
+	return NULL;
+}
+
 void conversion_carac(liste_t lst_head, char *lst){
 	if(lst_head.tete == NULL){
 		return;

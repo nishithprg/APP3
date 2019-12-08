@@ -57,9 +57,21 @@ void rechercher_espece (arbre racine, char *espece, liste_t *lst_head){
 	}
 }
 
-void insertion_espece (arbre racine, char *espece, int nb_carac){
-	if(racine == NULL && nb_carac == 1){
-		racine->droit = 
+void insertion_espece (arbre racine, char *espece, int nb_carac, liste_t lst_head){
+	if(racine == NULL && nb_carac == 0){
+		printf("Arbre vide, pas possible d'inserer\n");
+		return;
+	}
+	for(int i = 0; i <= nb_carac; i++){
+			if(racine->droit == NULL){
+				racine->droit = nouveau_noeud ();
+				racine->droit->valeur = elem_idx(lst_head, i+1);
+			}
+			if(!strcmp(racine->droit->valeur, elem_idx(lst_head, i))){
+					racine = racine->droit;
+			} else {
+				printf("Caracteristique different que celle dans l'arbre, caracteristique invalide\n");
+			}
 	}
 }
 

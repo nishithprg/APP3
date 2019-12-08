@@ -19,6 +19,8 @@ void ajout_en_queue(liste_t *lst_head, char *elem);
 
 cellule_t* nouvelleCellule (void);
 
+char *elem_idx(liste_t lst_head, int index);
+
 void conversion_carac(liste_t lst_head, char *lst);
 
 void afficher_lst(liste_t lst_head);

@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void ajout_en_tete(liste_t *seq , int_ens c, int type){
+   cellule_t *tete = malloc(sizeof(cellule_t));
+   tete->command = c;
+   tete->type = type;
+   tete->suivant = seq->tete;
+   seq->tete = tete;
+}
+
+
+void ajout_en_queue(sequence_t *seq , int_ens c,int type){
+   cellule_t *fin = nouvelleCellule();
+   if(seq->tete != NULL){
+	cellule_t *cel = seq -> tete;
+	while(cel->suivant != NULL){
+	   cel = cel-> suivant;
+	}
+	fin -> command = c;
+	fin -> type = type;
+	
+	fin ->suivant = NULL;
+	cel->suivant = fin;
+   }else{
+   		ajout_en_tete(seq,c,type);
+   }
+}
+
+
+
+void supprime_tete(sequence_t *seq){
+   cellule_t *temp = seq -> tete;
+   seq->tete = seq->tete->suivant;
+   free(temp);
+}
+
+
+
+void supprime_cellule(sequence_t *seq, cellule_t *cel){
+  cellule_t *temp;
+  cellule_t *el= seq-> tete;
+  if(seq->tete == cel){
+	   supprime_tete(seq);
+  }else{
+	   while(el->suivant != NULL){
+	     if(el->suivant == cel){
+		      temp = el;
+		      el = el->suivant;
+		      free(temp);
+	     }
+	     else el = el->suivant;
+	   }
+   }
+}
+
+
+
+cellule_t* nouvelleCellule (void)
+{
+    /* À compléter (utiliser malloc) */
+    cellule_t *cel = malloc(sizeof(cellule_t));
+    return cel;
+    printf("\n>>>>>>>>>>> A Faire : liste.c/nouvelleCellule() <<<<<<<<<<<<<<<<\n");
+}
+
+
+void detruireCellule (cellule_t* cel)
+{
+    free(cel);
+    printf("\n>>>>>>>>>>> A Faire : liste.c/detruireCellule() <<<<<<<<<<<<<<<<\n");
+}
+

@@ -57,22 +57,23 @@ void rechercher_espece (arbre racine, char *espece, liste_t *lst_head){
 	}
 }
 
-void insertion_espece (arbre racine, char *espece, int nb_carac, liste_t lst_head){
-	if(racine == NULL && nb_carac == 0){
-		printf("Arbre vide, pas possible d'inserer\n");
-		return;
+void insertion_espece (arbre racine, char *espece, liste_t lst_head, int nb_carac, int index){
+	if(racine == NULL){
+		racine = nouveau_noeud ();
+		strcpy(racine->valeur,espece);
+		if(nb_carac == 0){
+			return;
+		}
 	}
-	for(int i = 0; i <= nb_carac; i++){
-			if(racine->droit == NULL){
-				racine->droit = nouveau_noeud ();
-				racine->droit->valeur = elem_idx(lst_head, i+1);
-			}
-			if(!strcmp(racine->droit->valeur, elem_idx(lst_head, i))){
-					racine = racine->droit;
-			} else {
-				printf("Caracteristique different que celle dans l'arbre, caracteristique invalide\n");
-			}
+	if(racine->droit == NULL && racine->gauche == NULL){
+		printf("%s a les memes caracteristique qur %s, insertion pas possible", racine->valeur, espece);
 	}
+	if(!strcmp(racine->valeur, elem_idx(lst_head, index, nb_carac))){
+		insertion_espece(racine->droit,espece,lst_head,nb_carac,index+1);
+	} else {
+		insertion_espece(racine->gauche,espece,lst_head,nb_carac,index);
+	}
+
 }
 
 

@@ -22,6 +22,6 @@ int appartient(noeud * racine, char *espece);
 
 void rechercher_espece (arbre racine, char *espece, liste_t *lst_head);
 
-void insertion_espece (arbre racine, char *espece, int nb_caracs, liste_t lst_head);
+void insertion_espece (arbre racine, char *espece, liste_t lst_head, int nb_carac, int index);
 
 #endif

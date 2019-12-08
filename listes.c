@@ -33,9 +33,12 @@ cellule_t* nouvelleCellule (void){
     return cel;
 }
 
-char *elem_idx(liste_t lst_head, int index){
+char *elem_idx(liste_t lst_head, int index, int nb_carac){
 	if(lst_head.tete != NULL){
 		cellule_t *queue = lst_head.tete;
+		if(index > nb_carac - 1){
+			return NULL;
+		}
 		for(int i = 0; i <= index; i++){
 			if(i == index){
 				return queue->valeur;
